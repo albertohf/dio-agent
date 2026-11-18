@@ -8,6 +8,30 @@ Você não precisa saber programar nem instalar nada complicado. Em **3 passos**
 
 ---
 
+## 🔐 Especialização: análise de vulnerabilidades (desafio DIO)
+
+Este repositório é uma evolução do [DIO Agent](https://github.com/digitalinnovationone/dio-agent) com **foco em segurança**. Nenhum modelo foi treinado: o agente aprende pelo que está escrito nos arquivos.
+
+**Por quê:** em segurança, responder direto é arriscado, porque o risco depende do contexto. A especialização faz o agente agir como especialista em AppSec: **entender o contexto, avaliar impacto, probabilidade e severidade e orientar a correção**, sempre de forma defensiva e só em código e servidores de laboratório do próprio estudante.
+
+**O que foi criado ou alterado**
+
+| Arquivo | Tipo | O que contém |
+|---------|------|--------------|
+| `skills/vulnerability-analysis/SKILL.md` | novo | Roteiro de 7 etapas com regras defensivas e formato de saída padrão |
+| `skills/vulnerability-analysis/README.md` | novo | Explicação da skill para pessoas |
+| `agent/knowledge/security-basics.md` | novo | Vulnerabilidade, ameaça, risco, tríade CIA e boas práticas |
+| `agent/persona.md` | alterado | Seção "Quando o assunto é segurança" |
+| `AGENTS.md` | alterado | Linha na tabela de skills e o novo arquivo de conhecimento |
+| `lab/app_vulneravel.py` | novo | Login de laboratório com SQL Injection proposital |
+| `lab/app_corrigido.py` | novo | Mesmo login com consulta parametrizada |
+
+**Como rodar:** abra o terminal **na pasta do projeto** (em outro lugar, o agente não encontra os arquivos) e inicie o harness, por exemplo `hermes`. Depois peça: "Analise o `lab/app_vulneravel.py` como especialista em AppSec: encontre a falha, explique a exploração, cite a técnica do MITRE ATT&CK e reescreva o código." Para a validação, peça uma nova varredura do `lab/app_corrigido.py`.
+
+**Melhoria escolhida:** a análise sai **sempre no mesmo formato** (achado, técnica ATT&CK, impacto, probabilidade, severidade, correção e status), o que permite comparar casos.
+
+---
+
 ## ✨ Três palavras para começar
 
 - 🧠 **Agente de IA:** um chatbot responde perguntas. Um *agente* vai além: lê, planeja e executa passos para ajudar você a alcançar um objetivo. É a diferença entre alguém que explica o caminho e alguém que caminha junto com você.
@@ -57,6 +81,7 @@ Fale naturalmente, com as suas palavras. Nas primeiras vezes, vale usar um dos [
 | [Pesquisa na web](skills/web-search/SKILL.md) | Responde dúvidas atuais (versões, lançamentos, mercado) com fontes citadas | "Qual a versão estável do Node hoje?" |
 | [Revisão de portfólio](skills/portfolio-review/SKILL.md) | Dá feedback sobre o seu portfólio e GitHub antes de buscar vagas | "O que falta no meu GitHub para uma vaga júnior?" |
 | [Caminho AI Builder](skills/ai-builder-path/SKILL.md) | Ajuda você a escolher o próximo passo na Carreira AI Builder | "Qual Formação AI Builder combina comigo?" |
+| [Análise de vulnerabilidades](skills/vulnerability-analysis/SKILL.md) | Pergunta o contexto, avalia impacto, probabilidade e severidade e orienta a correção | "Analise o `lab/app_vulneravel.py` como especialista em AppSec." |
 
 A pesquisa na web usa a busca do seu harness. Se ele não tiver busca própria, veja [como conectar o You.com](docs/youcom-mcp.md), que tem uma opção gratuita.
 
@@ -122,6 +147,8 @@ dio-agent/
 │   ├── persona.md           A personalidade e o tom do agente
 │   └── knowledge/           O que o agente sabe sobre a DIO
 ├── skills/                  Uma pasta por skill, cada uma com o seu SKILL.md
+│   └── vulnerability-analysis/   Skill de segurança (SKILL.md + README.md)
+├── lab/                     Código de laboratório: app vulnerável e versão corrigida
 └── docs/
     ├── glossary.md          Glossário de termos
     └── youcom-mcp.md        Como conectar a busca do You.com
